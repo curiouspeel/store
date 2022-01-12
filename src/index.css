@@ -1,11 +1,11 @@
 body {
-  margin: 0;
+  margin: 30px;
 }
 
 :root{
   --primary: #4CAF50;
   --secondary: antiquewhite;
-  --light-grey: lightgrey;
+  --light-grey: #DADCE0;
 }
 
 
@@ -28,6 +28,7 @@ body {
   /* box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); */
   border: none;
   transition: opacity 200ms ease-out;
+  margin-top: 10px;
 }
 .ui-button:hover{
   opacity: 0.8;
@@ -51,7 +52,18 @@ body {
   margin: 0 auto;
 }
 
-/* All UI components */
-[class^="ui-"] {
-  margin: 10px;
+.product{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 250px;
+  background-color: var(--light-grey);
+}
+
+.product img{
+  margin-left: 10px;
+}
+.store-front{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
