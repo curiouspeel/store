@@ -1,14 +1,13 @@
 import React from 'react';
-
+import clsx from 'clsx';
 
 export default function Button(props){
+    const {children,className, ...rest}=props;
+    const cls = clsx("ui-button",className);
+
     return(
-        <button 
-        className="ui-button"
-        type={props.type}
-        disabled={props.disabled}
-        >
-            {props.children}
+        <button className={cls} {...rest}>
+            {children}
         </button>
     );
 }
