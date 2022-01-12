@@ -1,13 +1,57 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root{
+  --primary: #4CAF50;
+  --secondary: antiquewhite;
+  --light-grey: lightgrey;
+}
+
+
+/* Link */
+.ui-link{
+  text-decoration: none;
+  color: var(--primary);
+}
+
+/* Button */
+.ui-button{
+  background-color: var(--primary);
+  color: white;
+  padding: 5px 5px;
+  min-width: 150px;
+  font-size: 16px;
+  text-transform: uppercase;
+  border-radius: 5px;
+  cursor: pointer;
+  /* box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); */
+  border: none;
+  transition: opacity 200ms ease-out;
+}
+.ui-button:hover{
+  opacity: 0.8;
+}
+.ui-button:disabled{
+  opacity: 0.4;
+  cursor: disabled;
+}
+
+/* Input i.e. Textfield */
+.ui-textfield{
+  padding: 12px 10px;
+  border-radius: 3px;
+  border: 1px solid var(--light-grey);
+  font-size: 16px;
+}
+
+/* Container */
+.ui-container{
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* All UI components */
+[class^="ui-"] {
+  margin: 10px;
 }
