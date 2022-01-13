@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import Product from './Product';
+import AddProductForm from './AddProductForm';
+import ProductList from './ProductList';
 
 export default function StoreFront() {
     const [products, setProducts] = useState([]);
@@ -20,7 +21,7 @@ export default function StoreFront() {
             return;
         }
         setProducts([...products,{
-            id: products.length +1,
+            id: products.length +1,   //Basing id on products.length causes issues when deleting-adding products ["children with same key"]
             name: name,
             description: description
         }]);
@@ -38,52 +39,21 @@ export default function StoreFront() {
 
     return (
         <>
-            <form onSubmit={handleFormSubmit}>
-                <div>
-                    <label htmlFor="name">Name:</label>
-                    <input
-                        id="name"
-                        type="text"
-                        placeholder="Enter the name"
-                        className="ui-textfield"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                    />
-                </div>
-                <div>
-                    <label htmlFor="description">Description:</label>
-                    <input
-                        id="description"
-                        type="text"
-                        placeholder="Enter the description"
-                        className="ui-textfield"
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
-                    />
-                </div>
-                <div className="form-footer">
-                    <div className="validation-msg">{validationMsg}</div>
-                    <input
-                        type="submit"
-                        className="ui-button"
-                        value="Add product"
-                    />
-                </div>
-            </form>
+            <AddProductForm 
+                onFormSubmit={handleFormSubmit}
+                name={name}
+                onNameChange={(targetValue)=>setName(targetValue)}
+                description={description}
+                onDescriptionChange={(targetValue)=>setDescription(targetValue)}
+                validationMsg={validationMsg}
+            />
             
             {products.length<1 && <div><p>Add your first product</p></div>}
 
-            <ul className="store-front">
-                {products.map(product=> (<li key={product.id}>
-                        <Product details={product}/>
-                        <button
-                        onClick={()=>handleDelete(product.id)}
-                        >
-                            Delete
-                        </button>
-                    </li>)
-                )}
-            </ul>
+            <ProductList 
+                products={products}
+                onDeleteClick={handleDelete}
+            />
         </>
     );
 }
