@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import StoreFront from './components/StoreFront';
+// import StoreFront from './components/StoreFront';
+import NewStoreFront from './components/NewStoreFront';
 
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
   if (isLoggedIn) {
     result =
       <>
-        <StoreFront />
+        <NewStoreFront />
         <button
           className="ui-button"
           onClick={handleLoginClick}

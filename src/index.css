@@ -64,8 +64,10 @@ body {
   margin-left: 10px;
 }
 .store-front{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  /* display: grid; */
+  /* grid-template-columns: repeat(3, 1fr); */
+  display: flex;
+  gap: 30px;
 }
 
 ul{
